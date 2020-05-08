@@ -1,6 +1,9 @@
 <?php
+session_start();
 require('controller/FrontEnd.php');
+require('controller/BackEnd.php');
 
+require('controller/BackEnd.php');
 $ControllerFrontEnd = new ControllerFrontEnd();
 
 
@@ -31,6 +34,15 @@ if (isset($_GET['action'])) {
     }
      elseif ($_GET['action'] == 'Home') {
         $ControllerFrontEnd->Show_HomePage();
+    }
+    elseif ($_GET['action'] == 'ListChapitres') {
+        $ControllerBackEnd->List_Chapitres();
+    }
+    elseif ($_GET['action'] == 'deleteChapter') {
+        $ControllerBackEnd->supprimerChapitre($_GET['id']);
+    }
+    elseif ($_GET['action'] == 'addChapter') {
+        $ControllerBackEnd->viewAddForm();
     }
 }
     

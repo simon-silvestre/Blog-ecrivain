@@ -1,0 +1,427 @@
+@font-face
+{
+	font-family: 'Open_Sans_Semi';
+	src: url(assets/fonts/Open_Sans/OpenSans-SemiBold.ttf) format('truetype');
+}
+
+@font-face
+{
+	font-family: 'Open_Sans';
+	src: url(assets/fonts/Open_Sans/OpenSans-Regular.ttf) format('truetype');
+}
+
+@font-face
+{
+	font-family: 'youth';
+	src: url(assets/fonts/YouthTouchDemoRegular-4VwY.ttf) format('truetype');
+}
+
+p
+{
+    font-family: 'Open_Sans';
+}
+
+h1 
+{
+    font-family: 'test';
+    font-size: 8rem !important;
+    margin: 34px auto !important; 
+    text-align: center !important;
+}
+
+*
+{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+}
+
+/*-------------------  NAVBAR -------------------*/
+#logo
+{  
+    font-family: 'youth';
+    font-size: 35px;
+    padding: 0;
+    margin: 0;
+    color: #222!important;
+    font-weight: 900!important;
+    height: 40px;
+}
+
+.navbar 
+{
+    background-color: #e9ecef!important;
+}
+
+.navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link:hover
+{
+    color: #222!important;
+}
+
+.navbar-light .navbar-nav .active>.nav-link, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .show>.nav-link
+{
+    color: #222!important;
+}
+
+#btnBlack
+{
+    background-color: #222!important;
+    border-color: #222!important;
+    color: white!important;
+}
+
+#btnBlack:hover
+{
+    background-color: #000!important;
+    border-color: #000!important;
+}
+
+.dropdown-menu
+{
+    background-color: #e9ecef!important;
+    border: none!important;
+}
+
+.dropdown-item
+{
+    padding-left: 1rem!important;
+}
+
+.dropdown-item:active 
+{
+    background-color: #222!important;
+}
+
+/*-------------------  Banner section -------------------*/
+.section_banner
+{
+    overflow: hidden;
+    position: relative;
+    height: 500px;
+}
+
+.img-banner
+{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.text_banner
+{
+    font-family: 'youth';
+    text-align: center;
+    width: 390px !important;
+    margin-top: 50px !important;
+    font-size: 110px !important;
+    color: #000;;
+}
+
+.biographie_title
+{
+    font-family: 'helvetica'!important;
+    font-weight: 600!important;
+    font-size: 4rem!important;
+    color: #222!important;
+}
+
+.connect_button:hover
+{
+    background-color: #000!important;
+}
+
+.jumbotron
+{
+    margin-bottom: 0!important;
+} 
+
+#HomePage
+{
+    background-color: #e9ecef!important;
+    padding-bottom: 3rem;
+}
+
+.book_img
+{
+    transition-duration: 600ms;
+    cursor: pointer;
+}
+
+.book_img:hover 
+{
+    transform: scale(1.1) ;
+}
+
+/*-------------------  Chapitres -------------------*/
+.card-title
+{
+    color: #222!important;
+}
+
+.card-body
+{
+    color: #222!important;
+}
+
+.card-title
+{
+    font-weight: 800!important;
+}
+
+.card.text-white.bg-secondary.mb-3
+{
+    border: none!important;
+    background-color: #e9ecef!important;
+}
+
+/*-------------------  Chapitres_Post -------------------*/
+
+.com_title
+{
+    font-family: 'helvetica'!important;
+    font-weight: 600!important;
+    font-size: 3rem!important;
+    color: #222!important;
+}
+
+
+.comment_input
+{
+    border-color: #222!important;
+}
+
+p.card-text.mb-5.Page_chapitre
+{
+    line-height: 2rem;
+}
+
+/*-------------------  Admin Page -------------------*/
+
+thead#adminTab
+{
+    background-color: #222;
+    color: white;
+}
+
+#adminTabRow
+{
+    color: #222;
+}
+
+/*-------------------  Login Page -------------------*/
+
+.form_bg
+{
+    height: 91vh;
+    display: flex;
+    align-items: center;
+}
+
+.form_horizontal
+{
+    text-align: center;
+}
+
+.form_horizontal .form_icon
+{
+    font-size: 100px;
+    line-height: 85px;
+    margin: 0 0 13px;
+}
+
+.form_horizontal .title 
+{
+    font-size: 23px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin: 0 0 35px 0;
+}
+
+.form_horizontal .form_group
+{
+    margin: 0 0 10px;
+    position: relative;
+}
+
+.form_horizontal .input-icon
+{
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 13px;
+    color: #777;
+}
+
+.form_horizontal .form-control
+{
+    color: #555;
+    background-color: #e9ecef;
+    font-size: 13px;
+    letter-spacing: 1px;
+    height: 37px;
+    padding: 2px 15px 2px 35px;
+    border: none;
+    border-radius: 50px;
+}
+
+.form_horizontal .form-control::placeholder
+{
+    color: rgba(0, 0, 0, 0.7);
+    font-size: 14px;
+    text-transform: capitalize;
+}
+
+.form_horizontal .btn
+{
+    color: #FFF;
+    background-color: #222;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    width: 100%;
+    padding: 10px 20px;
+    margin: 0 0 15px 0;
+    border: none;
+    border-radius: 20px;
+    text-transform: uppercase;
+}
+
+.form_horizontal .btn:hover {
+    color: rgb(100, 100, 100);
+    text-decoration: none;
+}
+
+/*-------------------  MediaQueries  -------------------*/
+
+@media (max-width: 992px)
+{
+    .hamburger_button
+    {
+        width: 220px;
+        margin-left: -18px;
+    }
+}
+
+@media (min-width: 992px)
+{
+    .ID 
+    {
+        max-width: 10rem!important;
+    }
+}
+
+@media (min-width: 768px)
+{
+    .col-12 .text_banner
+    {
+        margin-left: 8rem!important;
+    }
+}
+
+/*-------------------  Iphone plus -------------------*/
+@media (max-width: 540px)
+{
+    .text_banner
+    {
+        width: 360px!important;
+        margin-top: 50px;
+    }
+}
+
+/*-------------------  Iphone -------------------*/
+
+@media (max-width: 438px)
+{
+    .icon_container
+    {
+        width: 100%;
+    }
+
+    .center_form
+    {
+        text-align: center!important;
+    }
+}
+
+@media (max-width: 420px)
+{
+    .text_banner
+    {
+        width: 300px!important;
+        margin-top: 95px!important;
+        font-size: 85px!important;
+    }    
+
+    .biographie_title
+    {
+        font-size: 4rem!important;
+    }
+    
+    .card_com
+    {
+        margin-left: 0.25rem!important;
+        margin-right: 0.25rem!important;
+    }
+
+    .com_title
+    {
+        font-size: 2.5rem!important;
+    }
+
+    .table td, .table th
+    {
+        vertical-align: middle!important;
+    }
+}
+
+@media (max-width: 370px)
+{
+    .com_title
+    {
+        font-size: 2.2rem!important;
+    }
+
+    .icon_btn
+    {
+        margin-bottom: 1rem;
+    }
+
+    .icon_container 
+    {
+        width: 30%!important;
+    }
+}
+
+@media (max-width: 325px)
+{
+    .text_banner
+    {
+        font-size: 5rem!important;
+        width: 265px!important;
+    }
+    
+    .biographie_title
+    {
+        font-size: 3.5rem!important;
+    }
+
+    .lead
+    {
+        font-size: 1rem!important;
+    }
+
+    .text_intro_jumbotron
+    {
+        font-size: 0.8rem!important;
+    }
+
+    a.btn.btn-primary.btn-lg.chapitre_button
+    {
+        width: 130px;
+        line-height: 18px;
+        font-size: 0.8rem;
+    }
+}
