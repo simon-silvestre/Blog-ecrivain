@@ -100,5 +100,26 @@ class ControllerBackEnd
             header('Location: index.php?action=ListChapitres');
         }
     }
+    function listCommentaires()
+    {
+        $commentManager = new CommentManager();
+        $comments = $commentManager->listAdminComments();
+        $sigcomments = $commentManager->listAdminComments();
+
+        require('view/CommentairesAdmin.php');
+    }
+
+    function supprimerCommentaire($post_id)
+    {
+        $commentManager = new CommentManager();
+        
+        $delCommentaire = $commentManager->suppAdminComment($post_id);
+
+        $_SESSION['message'] = "Le comentaire a été supprimé avec succès";
+        $_SESSION['msg_type'] = "danger";
+        
+        header('Location: index.php?action=listComment');
+
+    }
 
 }

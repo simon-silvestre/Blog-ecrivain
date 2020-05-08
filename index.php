@@ -68,6 +68,12 @@ if (isset($_GET['action'])) {
         echo 'Aucun identifiant de billet envoyé';
         }
     }
+    elseif ($_GET['action'] == 'listComment') {
+        $ControllerBackEnd->listCommentaires();
+    }
+    elseif ($_GET['action'] == 'deleteComment') {
+        $ControllerBackEnd->supprimerCommentaire($_GET['id']);
+    }
 }
     
 else {

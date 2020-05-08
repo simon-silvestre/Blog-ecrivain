@@ -19,6 +19,24 @@ class CommentManager
         return $affectedLines;
     }
 
+    public function listAdminComments()
+    {
+        $db = $this->dbConnect();
+        $comments = $db->prepare('SELECT id, signaler, author, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin\') AS comment_date_fr FROM comment ORDER BY signaler DESC, comment_date DESC');
+        $comments->execute(array());
+
+        return $comments;
+    }
+
+    public function suppAdminComment($post_id)
+    {
+        $db = $this->dbConnect();
+        $delCommentaire = $db->prepare("DELETE FROM comment WHERE id= ? ");
+        $delCommentaire->execute(array($post_id));
+
+        return $delCommentaire;
+    }
+
     private function dbConnect()
     {
         $db = new PDO('mysql:host=localhost;dbname=P4_ecrivain;charset=utf8', 'root', 'root');
