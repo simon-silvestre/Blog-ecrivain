@@ -3,6 +3,17 @@
 
 <?php ob_start(); ?>
 
+<?php 
+if (isset($_SESSION['message'])) { 
+?>
+
+<div class="alert alert-<?=$_SESSION['msg_type']?>">
+<?php
+    echo $_SESSION['message'];
+    unset ($_SESSION['message']);
+}?>
+</div>
+
 <div class="container"> 
     <div class="row">
         <div class="col">
@@ -39,7 +50,7 @@
             <p style="color: #222;"><strong><?= htmlspecialchars($comment['author']) ?></strong> le <?= $comment['comment_date_fr'] ?></p>
             <p style="color: #222;"><?= nl2br(htmlspecialchars($comment['comment'])) ?></p>
             <form class="form-inline mt-md-0">
-                <a class="btn btn-danger col-5 col-md-2 mr-4 mr-md-0 ml-auto" href="">Signaler</a>
+                <a class="btn btn-danger col-5 col-md-2 mr-4 mr-md-0 ml-auto" href="index.php?action=signalerComment&amp;id=<?= $comment['id'] ?>&amp;postid=<?= $post['id'] ?>">Signaler</a>
             </form>
         </div>
     </div>

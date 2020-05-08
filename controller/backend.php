@@ -68,6 +68,7 @@ class ControllerBackEnd
         }
     }
 
+    
     function viewEditForm($Id)
     {
         $postManager = new PostManager();
@@ -100,6 +101,7 @@ class ControllerBackEnd
             header('Location: index.php?action=ListChapitres');
         }
     }
+
     function listCommentaires()
     {
         $commentManager = new CommentManager();
@@ -120,6 +122,18 @@ class ControllerBackEnd
         
         header('Location: index.php?action=listComment');
 
+    }
+
+    function approuverCommentaire($id, $postid)
+    {
+        $commentManager = new CommentManager();
+
+        $appCommentaire = $commentManager->appAdminComment($id);
+
+        $_SESSION['message'] = "Le comentaire a été approuvé avec succès";
+        $_SESSION['msg_type'] = "success";
+
+        header('Location: index.php?action=listComment');
     }
 
 }

@@ -39,6 +39,19 @@ class ControllerFrontEnd
         }
     }
 
+    function signalerCommentaire($id, $postid)
+    {
+        $commentManager = new CommentManager();
+
+        $sigCommentaire = $commentManager->sigAdminComment($id);
+
+        $_SESSION['message'] = "Le comentaire a été signaler avec succès";
+        $_SESSION['msg_type'] = "danger";
+
+        header('Location: index.php?action=post&id=' . $postid);
+    }
+
+
     function Show_HomePage()
     {
         require('view/HomePage.php');

@@ -37,6 +37,24 @@ class CommentManager
         return $delCommentaire;
     }
 
+    public function sigAdminComment($id)
+    { 
+        $db = $this->dbConnect();
+        $sigCommentaire = $db->prepare("UPDATE comment SET signaler = 1  WHERE id = ?");
+        $sigCommentaire->execute(array($id));
+
+        return $sigCommentaire;
+    }
+
+    public function appAdminComment($id)
+    { 
+        $db = $this->dbConnect();
+        $sigCommentaire = $db->prepare("UPDATE comment SET signaler = 0  WHERE id = ?");
+        $sigCommentaire->execute(array($id));
+
+        return $sigCommentaire;
+    }
+
     private function dbConnect()
     {
         $db = new PDO('mysql:host=localhost;dbname=P4_ecrivain;charset=utf8', 'root', 'root');

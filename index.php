@@ -74,6 +74,12 @@ if (isset($_GET['action'])) {
     elseif ($_GET['action'] == 'deleteComment') {
         $ControllerBackEnd->supprimerCommentaire($_GET['id']);
     }
+    elseif ($_GET['action'] == 'signalerComment') {
+        $ControllerFrontEnd->signalerCommentaire($_GET['id'], $_GET['postid']);
+    }
+    elseif ($_GET['action'] == 'approuverComment') {
+        $ControllerBackEnd->approuverCommentaire($_GET['id'], $_GET['postid']);
+    }
 }
     
 else {
