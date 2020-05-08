@@ -68,4 +68,37 @@ class ControllerBackEnd
         }
     }
 
+    function viewEditForm($Id)
+    {
+        $postManager = new PostManager();
+        $edit = $postManager->editChapitre($Id);
+
+        $titre = $edit['title'];
+        $intro = $edit['intro'];
+        $content = $edit['content'];
+
+        $update = true;
+
+        require('view/FormulaireAdmin.php');
+    }
+
+    function updateChapitre($id, $titre, $intro, $content)
+    {
+
+        $postManager = new PostManager();
+
+        $update = $postManager->upChapitre($id, $titre, $intro, $content);
+
+        
+        if ($update === false) {
+            throw new Exception('Impossible de modifier le chapitre !');
+        }
+        else {
+            $_SESSION['message'] = "Le chapitre a été modifié avec succès";
+            $_SESSION['msg_type'] = "info";
+
+            header('Location: index.php?action=ListChapitres');
+        }
+    }
+
 }

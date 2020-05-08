@@ -46,6 +46,25 @@ class PostManager
         return $listChapitre;
     }
 
+    public function editChapitre($Id)
+    {
+        $db = $this->dbConnect();
+        $req1 = $db->prepare("SELECT * FROM chapter_list WHERE id = ?");
+        $req1->execute(array($Id));
+        $edit = $req1->fetch();
+        
+        return $edit;
+    }
+
+    public function upChapitre($id, $titre, $intro, $content)
+    {
+        $db = $this->dbConnect();
+        $up = $db->prepare("UPDATE chapter_list SET title= ?, intro = ?, content = ?  WHERE id = ?");
+        $update = $up->execute(array($titre, $intro, $content, $id));
+
+        return $update;
+    }
+
     private function dbConnect()
     {
         $db = new PDO('mysql:host=localhost;dbname=P4_ecrivain;charset=utf8', 'root', 'root');

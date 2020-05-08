@@ -44,6 +44,30 @@ if (isset($_GET['action'])) {
     elseif ($_GET['action'] == 'addChapter') {
         $ControllerBackEnd->viewAddForm();
     }
+    elseif (isset($_POST['save'])){
+        if (!empty($_POST['title']) && !empty($_POST['intro']) && !empty($_POST['content'])) {
+            $ControllerBackEnd->addChapitre($_POST['title'], $_POST['intro'], $_POST['content']);
+        }
+        else {
+            echo 'Tous les champs ne sont pas remplis !';
+        }
+    }
+    elseif ($_GET['action'] == 'edit') {
+        $ControllerBackEnd->viewEditForm($_GET['id']);
+    }
+    elseif (isset($_POST['update'])){
+        if (isset($_POST['id']) && $_POST['id'] > 0) {
+            if (!empty($_POST['title']) && !empty($_POST['intro']) && !empty($_POST['content'])) {
+                $ControllerBackEnd->updateChapitre($_POST['id'], $_POST['title'], $_POST['intro'], $_POST['content']);
+            }
+            else {
+                echo 'Tous les champs ne sont pas remplis !';
+            } 
+        }
+        else {
+        echo 'Aucun identifiant de billet envoyé';
+        }
+    }
 }
     
 else {
