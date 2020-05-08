@@ -68,7 +68,7 @@ class ControllerBackEnd
         }
     }
 
-    
+
     function viewEditForm($Id)
     {
         $postManager = new PostManager();
@@ -136,4 +136,34 @@ class ControllerBackEnd
         header('Location: index.php?action=listComment');
     }
 
+    function LoginSysteme($nom, $mdp)
+    {
+        $postManager = new PostManager();
+
+        $resultLogin = $postManager->getLogin($nom);
+
+        if($resultLogin == true)
+        {
+            if(password_verify($mdp, $resultLogin['mdp']))
+            {
+                $_SESSION['name'] = $resultLogin['name'];
+                $_SESSION['mdp'] = $resultLogin['mdp'];
+                $_SESSION['id'] = $resultLogin['id'];
+
+                header('Location: index.php?action=ListChapitres');
+            } 
+            else
+            {
+                echo "le mot de passe est faux";
+            }
+        }
+        require('view/LoginPage.php');
+    }
+
+    function LogoutPage()
+    {
+        session_destroy();
+        header('Location: index.php?action=Home');
+        require('view/LogoutPage.php');
+    }
 }

@@ -28,15 +28,6 @@ class PostManager
         return $rep;
     }
 
-    public function suppChapitre($Id)
-    {
-        $db = $this->dbConnect();
-        $delChapitre = $db->prepare("DELETE FROM chapter_list WHERE id= ? ");
-        $delChapitre->execute(array($Id));
-
-        return $delChapitre;
-    }
-
     public function postChapitre($title, $intro, $content)
     {
         $db = $this->dbConnect();
@@ -44,6 +35,15 @@ class PostManager
         $listChapitre = $chapitre->execute(array($title, $intro, $content));
 
         return $listChapitre;
+    }
+
+    public function suppChapitre($Id)
+    {
+        $db = $this->dbConnect();
+        $delChapitre = $db->prepare("DELETE FROM chapter_list WHERE id= ? ");
+        $delChapitre->execute(array($Id));
+
+        return $delChapitre;
     }
 
     public function editChapitre($Id)
@@ -63,6 +63,16 @@ class PostManager
         $update = $up->execute(array($titre, $intro, $content, $id));
 
         return $update;
+    }
+
+    public function getLogin($nom)
+    {
+        $db = $this->dbConnect();
+        $login = $db->prepare("SELECT * FROM user WHERE name = ?");
+        $login->execute(array($nom));
+        $resultLogin = $login->fetch();
+
+        return $resultLogin;
     }
 
     private function dbConnect()

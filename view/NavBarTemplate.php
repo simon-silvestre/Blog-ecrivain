@@ -28,6 +28,8 @@
         <li class="nav-item">
           <a class="nav-link" href="index.php?action=listPosts">Chapitres</a>
         </li>
+        <?php if (isset($_SESSION['id'])){
+          if ($_SESSION['id'] == 3) {?>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Administration</a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -35,11 +37,18 @@
             <a class="dropdown-item" href="index.php?action=listComment">Commentaires manager</a>
           </div>
         </li>
+        <?php }?>
+        <?php }?>
       </ul>
       <nav class="navbar navbar-light mr-lg-7">
       <form class="form-inline hamburger_button">
+      <?php if (isset($_SESSION['id'])){
+          if ($_SESSION['id'] == 3) {?>
         <a href="index.php?action=logout" class="btn btn-outline-secondary connect_button">Se déconnecter</a>
+      <?php }?>
+      <?php } else{?>
         <a href="index.php?action=login" class="btn btn-outline-secondary connect_button">Se connecter</a>
+      <?php }?>
       </form>
       </nav>
     </div>

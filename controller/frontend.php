@@ -51,6 +51,10 @@ class ControllerFrontEnd
         header('Location: index.php?action=post&id=' . $postid);
     }
 
+    function viewLoginPage()
+    {
+        require('view/LoginPage.php');
+    }
 
     function Show_HomePage()
     {

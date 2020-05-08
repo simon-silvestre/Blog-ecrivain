@@ -1,9 +1,9 @@
 <?php
 session_start();
+require('controller/BackEnd.php');
 require('controller/FrontEnd.php');
-require('controller/BackEnd.php');
 
-require('controller/BackEnd.php');
+$ControllerBackEnd = new ControllerBackEnd();
 $ControllerFrontEnd = new ControllerFrontEnd();
 
 
@@ -79,6 +79,20 @@ if (isset($_GET['action'])) {
     }
     elseif ($_GET['action'] == 'approuverComment') {
         $ControllerBackEnd->approuverCommentaire($_GET['id'], $_GET['postid']);
+    }
+    elseif ($_GET['action'] == 'login') {
+        $ControllerFrontEnd->viewLoginPage();
+    }
+    elseif ($_GET['action'] == 'logout') {
+        $ControllerBackEnd->LogoutPage();
+    }
+    elseif (isset($_POST['connexion'])){
+        if (!empty($_POST['name']) && !empty($_POST['mdp'])) {
+            $ControllerBackEnd->LoginSysteme($_POST['name'], $_POST['mdp']);
+        }
+        else {
+            echo 'Tous les champs ne sont pas remplis !';
+        } 
     }
 }
     
