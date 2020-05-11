@@ -6,7 +6,6 @@ require('controller/FrontEnd.php');
 $ControllerBackEnd = new ControllerBackEnd();
 $ControllerFrontEnd = new ControllerFrontEnd();
 
-
 if (isset($_GET['action'])) {
     if ($_GET['action'] == 'listPosts') {
         $ControllerFrontEnd->listPosts();

@@ -1,7 +1,6 @@
 <?php
 class PostManager
 {
-
     public function getPosts()
     {
         $db = $this->dbConnect();
