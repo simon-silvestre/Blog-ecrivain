@@ -32,6 +32,9 @@ if (isset($_GET['action'])) {
             echo 'Aucun identifiant de billet envoyé';
         }
     }
+    elseif ($_GET['action'] == 'signalerComment') {
+        $ControllerFrontEnd->signalerCommentaire($_GET['id'], $_GET['postid']);
+    }
      elseif ($_GET['action'] == 'Home') {
         $ControllerFrontEnd->Show_HomePage();
     }
@@ -74,17 +77,11 @@ if (isset($_GET['action'])) {
     elseif ($_GET['action'] == 'deleteComment') {
         $ControllerBackEnd->supprimerCommentaire($_GET['id']);
     }
-    elseif ($_GET['action'] == 'signalerComment') {
-        $ControllerFrontEnd->signalerCommentaire($_GET['id'], $_GET['postid']);
-    }
     elseif ($_GET['action'] == 'approuverComment') {
-        $ControllerBackEnd->approuverCommentaire($_GET['id'], $_GET['postid']);
+        $ControllerBackEnd->approuverCommentaire($_GET['id']);
     }
     elseif ($_GET['action'] == 'login') {
         $ControllerFrontEnd->viewLoginPage();
-    }
-    elseif ($_GET['action'] == 'logout') {
-        $ControllerBackEnd->LogoutPage();
     }
     elseif (isset($_POST['connexion'])){
         if (!empty($_POST['name']) && !empty($_POST['mdp'])) {
@@ -93,6 +90,9 @@ if (isset($_GET['action'])) {
         else {
             echo 'Tous les champs ne sont pas remplis !';
         } 
+    }
+    elseif ($_GET['action'] == 'logout') {
+        $ControllerBackEnd->LogoutPage();
     }
 }
     

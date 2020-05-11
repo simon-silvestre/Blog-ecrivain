@@ -8,8 +8,8 @@ class ControllerFrontEnd
 
     function listPosts()
     {
-        $postManager = new PostManager(); //creation d'un objet
-        $posts = $postManager->getposts(); //appel d'une fonction de cet objet
+        $postManager = new PostManager();
+        $posts = $postManager->getposts(); 
 
         require('view/Chapitres.php');
     }
@@ -35,6 +35,8 @@ class ControllerFrontEnd
             throw new Exception('Impossible d\'ajouter le commentaire !');
         }
         else {
+            $_SESSION['message'] = "Le comentaire a été ajouté avec succès";
+            $_SESSION['msg_type'] = "success";
             header('Location: index.php?action=post&id=' . $postId);
         }
     }

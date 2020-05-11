@@ -28,15 +28,6 @@ class CommentManager
         return $comments;
     }
 
-    public function suppAdminComment($post_id)
-    {
-        $db = $this->dbConnect();
-        $delCommentaire = $db->prepare("DELETE FROM comment WHERE id= ? ");
-        $delCommentaire->execute(array($post_id));
-
-        return $delCommentaire;
-    }
-
     public function sigAdminComment($id)
     { 
         $db = $this->dbConnect();
@@ -44,6 +35,15 @@ class CommentManager
         $sigCommentaire->execute(array($id));
 
         return $sigCommentaire;
+    }
+
+    public function suppAdminComment($post_id)
+    {
+        $db = $this->dbConnect();
+        $delCommentaire = $db->prepare("DELETE FROM comment WHERE id= ? ");
+        $delCommentaire->execute(array($post_id));
+
+        return $delCommentaire;
     }
 
     public function appAdminComment($id)

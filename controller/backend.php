@@ -12,12 +12,6 @@ class ControllerBackEnd
         $postManager = new PostManager();
         $rep = $postManager->listChapitre(); 
 
-        $titre = '';
-        $content = '';
-
-
-        $update = false;
-
         require('view/ChapitresAdmin.php');
     }
 
@@ -37,22 +31,17 @@ class ControllerBackEnd
 
     function viewAddForm()
     {
-        $postManager = new PostManager();
-        $rep = $postManager->listChapitre(); 
-
         $titre = '';
         $intro = '';
         $content = '';
 
         $update = false;
         
-
         require('view/FormulaireAdmin.php');
     }
 
     function addChapitre($title, $intro, $content)
     {
-
         $postManager = new PostManager();
 
         $listChapitre = $postManager->postChapitre($title, $intro, $content);
@@ -106,7 +95,6 @@ class ControllerBackEnd
     {
         $commentManager = new CommentManager();
         $comments = $commentManager->listAdminComments();
-        $sigcomments = $commentManager->listAdminComments();
 
         require('view/CommentairesAdmin.php');
     }
@@ -124,7 +112,7 @@ class ControllerBackEnd
 
     }
 
-    function approuverCommentaire($id, $postid)
+    function approuverCommentaire($id)
     {
         $commentManager = new CommentManager();
 
@@ -154,8 +142,14 @@ class ControllerBackEnd
             } 
             else
             {
-                echo "le mot de passe est faux";
+                $_SESSION['message'] = "Le mot de passe est faux";
+                $_SESSION['msg_type'] = "danger";
             }
+        }
+        else 
+        {
+            $_SESSION['message'] = "Cet utilisateur n'existe pas";
+            $_SESSION['msg_type'] = "danger";
         }
         require('view/LoginPage.php');
     }
@@ -164,6 +158,5 @@ class ControllerBackEnd
     {
         session_destroy();
         header('Location: index.php?action=Home');
-        require('view/LogoutPage.php');
     }
 }
