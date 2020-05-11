@@ -27,15 +27,6 @@ class PostManager
         return $rep;
     }
 
-    public function postChapitre($title, $intro, $content)
-    {
-        $db = $this->dbConnect();
-        $chapitre = $db->prepare("INSERT INTO chapter_list(id, title, intro, content, creation_date) VALUES(NULL, ?, ?, ?, NOW())");
-        $listChapitre = $chapitre->execute(array($title, $intro, $content));
-
-        return $listChapitre;
-    }
-
     public function suppChapitre($Id)
     {
         $db = $this->dbConnect();
@@ -43,6 +34,15 @@ class PostManager
         $delChapitre->execute(array($Id));
 
         return $delChapitre;
+    }
+
+    public function postChapitre($title, $intro, $content)
+    {
+        $db = $this->dbConnect();
+        $chapitre = $db->prepare("INSERT INTO chapter_list(id, title, intro, content, creation_date) VALUES(NULL, ?, ?, ?, NOW())");
+        $listChapitre = $chapitre->execute(array($title, $intro, $content));
+
+        return $listChapitre;
     }
 
     public function editChapitre($Id)
