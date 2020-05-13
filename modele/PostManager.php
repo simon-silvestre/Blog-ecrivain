@@ -20,27 +20,6 @@ class PostManager
         return $post;
     }
 
-<<<<<<< HEAD
-    public function postChapitre($title, $intro, $content)
-=======
-    public function listChapitre()
-    {
-        $db = $this->dbConnect();
-        $rep = $db->query('SELECT id, title, intro, content, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%i\') AS creation_date_fr FROM chapter_list ORDER BY creation_date');
-
-        return $rep;
-    }
-
-    public function suppChapitre($Id)
->>>>>>> 03990cecd87a57e774d93b681c1500a60f278072
-    {
-        $db = $this->dbConnect();
-        $delChapitre = $db->prepare("DELETE FROM chapter_list WHERE id= ? ");
-        $delChapitre->execute(array($Id));
-
-        return $delChapitre;
-    }
-
     public function postChapitre($title, $intro, $content)
     {
         $db = $this->dbConnect();
@@ -48,6 +27,15 @@ class PostManager
         $listChapitre = $chapitre->execute(array($title, $intro, $content));
 
         return $listChapitre;
+    }
+
+    public function suppChapitre($Id)
+    {
+        $db = $this->dbConnect();
+        $delChapitre = $db->prepare("DELETE FROM chapter_list WHERE id= ? ");
+        $delChapitre->execute(array($Id));
+
+        return $delChapitre;
     }
 
     public function editChapitre($Id)

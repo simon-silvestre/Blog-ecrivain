@@ -41,11 +41,6 @@ class ControllerFrontEnd
         }
     }
 
-    function Show_HomePage()
-    {
-        require('view/HomePage.php');
-    }
-
     function signalerCommentaire($id, $postid)
     {
         $commentManager = new CommentManager();
@@ -61,5 +56,10 @@ class ControllerFrontEnd
     function viewLoginPage()
     {
         require('view/LoginPage.php');
+    }
+
+    function Show_HomePage()
+    {
+        require('view/HomePage.php');
     }
 }
