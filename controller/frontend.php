@@ -1,9 +1,11 @@
 <?php
+
 require_once('modele/PostManager.php');
 require_once('modele/CommentManager.php');
 
 class ControllerFrontEnd
 {
+
     function listPosts()
     {
         $postManager = new PostManager();

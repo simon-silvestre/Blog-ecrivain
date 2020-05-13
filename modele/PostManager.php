@@ -1,6 +1,7 @@
 <?php
 class PostManager
 {
+
     public function getPosts()
     {
         $db = $this->dbConnect();
@@ -17,14 +18,6 @@ class PostManager
         $post = $req->fetch();
 
         return $post;
-    }
-
-    public function listChapitre()
-    {
-        $db = $this->dbConnect();
-        $rep = $db->query('SELECT id, title, intro, content, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%i\') AS creation_date_fr FROM chapter_list ORDER BY creation_date');
-
-        return $rep;
     }
 
     public function postChapitre($title, $intro, $content)

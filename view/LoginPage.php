@@ -13,7 +13,6 @@ if (isset($_SESSION['message'])) {
 }?>
 </div>
 
-
 <div class="form_bg">
     <div class="container"> 
          <div class="row justify-content-center">

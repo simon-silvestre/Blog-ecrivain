@@ -1,16 +1,20 @@
 <?php
+
 require_once('modele/PostManager.php');
 require_once('modele/CommentManager.php');
 
+
 class ControllerBackEnd
 {
+
     function List_Chapitres()
     {
         $postManager = new PostManager();
-        $rep = $postManager->listChapitre(); 
+        $rep = $postManager->getPosts(); 
 
         require('view/ChapitresAdmin.php');
     }
+
 
     function supprimerChapitre($Id)
     {
@@ -53,6 +57,7 @@ class ControllerBackEnd
         }
     }
 
+
     function viewEditForm($Id)
     {
         $postManager = new PostManager();
@@ -69,6 +74,7 @@ class ControllerBackEnd
 
     function updateChapitre($id, $titre, $intro, $content)
     {
+
         $postManager = new PostManager();
 
         $update = $postManager->upChapitre($id, $titre, $intro, $content);
