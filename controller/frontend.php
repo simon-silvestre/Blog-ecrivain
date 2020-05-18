@@ -35,7 +35,7 @@ class ControllerFrontEnd
             throw new Exception('Impossible d\'ajouter le commentaire !');
         }
         else {
-            $_SESSION['message'] = "Le comentaire a été ajouté avec succès";
+            $_SESSION['message'] = "Le commentaire a été ajouté avec succès";
             $_SESSION['msg_type'] = "success";
             header('Location: index.php?action=post&id=' . $postId);
         }
@@ -47,7 +47,7 @@ class ControllerFrontEnd
 
         $sigCommentaire = $commentManager->sigAdminComment($id);
 
-        $_SESSION['message'] = "Le comentaire a été signaler avec succès";
+        $_SESSION['message'] = "Le commentaire a été signalé avec succès";
         $_SESSION['msg_type'] = "danger";
 
         header('Location: index.php?action=post&id=' . $postid);

@@ -41,7 +41,7 @@ class PostManager
     public function editChapitre($Id)
     {
         $db = $this->dbConnect();
-        $req1 = $db->prepare("SELECT * FROM chapter_list WHERE id = ?");
+        $req1 = $db->prepare("SELECT id, title, intro, content, creation_date FROM chapter_list WHERE id = ?");
         $req1->execute(array($Id));
         $edit = $req1->fetch();
         
@@ -60,7 +60,7 @@ class PostManager
     public function getLogin($nom)
     {
         $db = $this->dbConnect();
-        $login = $db->prepare("SELECT * FROM user WHERE name = ?");
+        $login = $db->prepare("SELECT id, name, mdp FROM user WHERE name = ?");
         $login->execute(array($nom));
         $resultLogin = $login->fetch();
 
