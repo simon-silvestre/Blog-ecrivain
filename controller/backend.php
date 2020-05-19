@@ -105,7 +105,7 @@ class ControllerBackEnd
         
         $delCommentaire = $commentManager->suppAdminComment($post_id);
 
-        $_SESSION['message'] = "Le comentaire a été supprimé avec succès";
+        $_SESSION['message'] = "Le commentaire a été supprimé avec succès";
         $_SESSION['msg_type'] = "danger";
         
         header('Location: index.php?action=listComment');
@@ -118,7 +118,7 @@ class ControllerBackEnd
 
         $appCommentaire = $commentManager->appAdminComment($id);
 
-        $_SESSION['message'] = "Le comentaire a été approuvé avec succès";
+        $_SESSION['message'] = "Le commentaire a été approuvé avec succès";
         $_SESSION['msg_type'] = "success";
 
         header('Location: index.php?action=listComment');
